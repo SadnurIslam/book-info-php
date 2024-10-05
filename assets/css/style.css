@@ -29,5 +29,8 @@ td,th{
     font-weight: bold;
     font-size: 20px;
 }
+.btn:hover{
+    color: rgb(194, 190, 190)!important;
+}
 
 

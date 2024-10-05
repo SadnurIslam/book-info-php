@@ -23,11 +23,15 @@
         table{
             width: 100%;
         }
+        .btn{
+            width: 100px;
+            color: white;
+        }
     </style>
 </head>
 <body>
     <div class="container2 container">
-    <button id="back" class="btn btn-info">&lt;Back</button> <br><br>
+    <br>
     <form action="addbook.php" method="post">
         <table>
             <tbody>
@@ -58,7 +62,7 @@
                 </tr>    
                 <tr>
                     <td></td>
-                    <td style="text-align:center"><input class="btn btn-success" type="submit" value="Save" name="submit" id="btn">
+                    <td style="text-align:center"><button id="back" class="btn btn-secondary">Back</button><input class="btn btn-success" type="submit" value="Save" name="submit" id="btn">
                     </td>
                 </tr>   
             </tbody>
