@@ -1,0 +1,33 @@
+td, th {
+    text-align: center;
+}
+body {
+    padding: 50px;
+}
+table{
+    width: 60%;
+    margin: auto;
+}
+.container1{
+    margin: 0 auto;
+    text-align: center;
+}
+#btn, #edit{
+    padding: 5px 10px;
+    border-radius: 4px;
+    margin: 2px 5px;
+    width: 100px;
+}
+form{
+    width: 100%;
+}
+td,th{
+    border: 1px solid black;
+}
+.srctxt{
+    color: rgb(210, 30, 60);
+    font-weight: bold;
+    font-size: 20px;
+}
+
+
