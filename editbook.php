@@ -3,7 +3,7 @@
     for($i=0; $i<count($books1); $i++){
         $books1[$i]['action'] = "<form class='editbtn' action='editbook.php' method='post'><input type='submit' value='Update' name='$i'></form>  <form class='editbtn' action='editbook.php' method='post'><input type='submit' value='Delete' name='$i'></form>";
     }
-    $keys1 = array('title', 'author', 'available', 'pages', 'isbn', 'action');
+    $keys1 = array('SL','title', 'author', 'available', 'pages', 'isbn', 'action');
 ?>
 
 
@@ -56,8 +56,10 @@
             </tr>
         </thead>
         <tbody>
+            <?php $sl = 0; ?>
             <?php foreach($books1 as $book): ?>
                 <tr>
+                    <td><?php echo ++$sl; ?></td>
                     <?php foreach($book as $key => $value): ?>
                         <?php if($key === 'available' && $value==true): ?>
                             <td><?php echo "Yes" ?></td>
@@ -69,6 +71,11 @@
                     <?php endforeach; ?>
                 </tr>
             <?php endforeach; ?>
+            <?php if($sl == 0): ?>
+                <tr>
+                    <td colspan="6" class="text-danger"><b>No data to display!</b></td>
+                </tr>
+            <?php endif; ?>
         </tbody>
     </table>
     <?php 

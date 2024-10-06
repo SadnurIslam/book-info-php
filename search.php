@@ -44,6 +44,11 @@
                     <?php endforeach; ?>
                 </tr>
             <?php endforeach; ?>
+            <?php if($sl == 0): ?>
+                <tr>
+                    <td colspan="6" class="text-danger"><b>No result found!</b></td>
+                </tr>
+            <?php endif; ?>
         </tbody>
     </table>
     <br>

@@ -26,8 +26,7 @@ td,th{
 }
 .srctxt{
     color: rgb(210, 30, 60);
-    font-weight: bold;
-    font-size: 20px;
+    font-size: 18px;
 }
 .btn:hover{
     color: rgb(194, 190, 190)!important;
