@@ -4,6 +4,7 @@
 <html lang="en">
 <head>
 <?php require 'head.php'; ?>
+<title>Homepage | Book Info</title>
 <style>
     input{
         border: 1px solid gray;

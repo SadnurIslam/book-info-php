@@ -4,6 +4,7 @@
 <html lang="en">
 <head>
 <?php require 'head.php'; ?>
+<title>Search Page | Book Info</title>
 </head>
 <body>
     <div class="container container1">
@@ -12,6 +13,7 @@
         if(isset($_GET['src_btn'])){
             $pattern=$_GET['pattern'];
         }
+        $plen = strlen($pattern);
         echo "Search results for: <span class='srctxt'>".$pattern."</span>";
     ?>
     <br><br>

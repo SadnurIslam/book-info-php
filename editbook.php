@@ -1,9 +1,19 @@
-<?php require 'readfile.php'; 
-    $books1 = $books;
-    for($i=0; $i<count($books1); $i++){
-        $books1[$i]['action'] = "<form class='editbtn' action='editbook.php' method='post'><input type='submit' value='Update' name='$i'></form>  <form class='editbtn' action='editbook.php' method='post'><input type='submit' value='Delete' name='$i'></form>";
+<?php require 'readfile.php';
+    $action =[];
+    for($i=0; $i<count($books); $i++){
+        $action[$i] = "<form class='editbtn' action='updatebook.php' method='post'><button class='text-danger' value='$i' name='edit' type='submit'>Edit</button></form> <form class='editbtn' action='editbook.php' method='post'><button class='text-danger' type='submit' value='$i' name='delete'>Delete</button></form> ";
     }
     $keys1 = array('SL','title', 'author', 'available', 'pages', 'isbn', 'action');
+    $title1 = $author1 = $available1 = $pages1 = $isbn1 = "";
+    $index=null;
+    if(isset($_POST['delete'])){
+        $index = $_POST['delete'];
+        array_splice($books, $index, 1);
+        array_splice($action, $index, 1);
+        $booksJson = json_encode($books, JSON_PRETTY_PRINT);
+        file_put_contents('books.json', $booksJson);
+        #echo "<script>window.location.href='editbook.php';</script>";
+    }
 ?>
 
 
@@ -11,6 +21,7 @@
 <html lang="en">
 <head>
     <?php require 'head.php';?>
+    <title>Edit/Delete Book | Book Info</title>
     <style>
         td, th {
             text-align: center;
@@ -41,6 +52,10 @@
             display: inline;
             font-size: 12px;
         }
+        .text-danger{
+            width: 45px;
+        }
+
     </style>
 </head>
 <body>
@@ -57,7 +72,7 @@
         </thead>
         <tbody>
             <?php $sl = 0; ?>
-            <?php foreach($books1 as $book): ?>
+            <?php foreach($books as $book): ?>
                 <tr>
                     <td><?php echo ++$sl; ?></td>
                     <?php foreach($book as $key => $value): ?>
@@ -69,6 +84,7 @@
                             <td><?php echo $value; ?></td>
                         <?php endif; ?>
                     <?php endforeach; ?>
+                    <td><?php echo $action[$sl-1]; ?></td>
                 </tr>
             <?php endforeach; ?>
             <?php if($sl == 0): ?>
@@ -78,27 +94,7 @@
             <?php endif; ?>
         </tbody>
     </table>
-    <?php 
-        $index=null;
-        for($i=0;$i<count($books1);$i++){
-            $x = strval($i);
-            if(isset($_POST[$x])){
-                $index = $i;
-                if($_POST[$x] === 'Delete'){
-                    array_splice($books, $index, 1);
-                    array_splice($books1, $index, 1);
-                    $booksJson = json_encode($books, JSON_PRETTY_PRINT);
-                    file_put_contents('books.json', $booksJson);
-                    echo "<script>window.location.href = 'editbook.php';</script>";
-                }
-                else if($_POST[$x] === 'Update'){
-                    $_SESSION['index'] = $index;
-                    echo "<script>window.location.href = 'updatebook.php';</script>";
-                }
-                break;
-            }
-        }
-    ?>
+    
     <input type="submit" value="Go to Homepage" name="submit" id="btnhm" class="btn btn-primary">
     </div>
     <script src="assets/bootstrap5/js/bootstrap.min.js"></script>

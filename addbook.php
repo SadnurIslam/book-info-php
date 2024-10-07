@@ -3,6 +3,7 @@
 <html lang="en">
 <head>
     <?php require 'head.php'; ?>
+    <title>Add New Book</title>
     <style>
         td,th{
             border: none;
@@ -31,6 +32,7 @@
 </head>
 <body>
     <div class="container2 container">
+    <h3 class="text-center">Add New Book</h3>
     <br>
     <form action="addbook.php" method="post">
         <table>
