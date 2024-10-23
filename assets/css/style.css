@@ -12,7 +12,7 @@ table{
     margin: 0 auto;
     text-align: center;
 }
-#btn, #edit{
+#add_btn, #edit{
     padding: 5px 10px;
     border-radius: 4px;
     margin: 2px 5px;
@@ -25,11 +25,26 @@ td,th{
     border: 1px solid black;
 }
 .srctxt{
-    color: rgb(210, 30, 60);
+    /* color: rgb(240, 13, 51); */
     font-size: 18px;
+    font-weight: semi-bold;
 }
 .btn:hover{
     color: rgb(194, 190, 190)!important;
 }
 
+.edit_btn,.delete_btn{
+    font-size: 10px;
+    padding: 5px 10px;
+}
 
+.cancel_src{
+    padding: 0px 3px;
+    margin: 0;
+    font-size: 12px;
+    line-height: 1;
+    border: 1px dotted #476e91;
+    color: #ecbe0b;
+    font-weight: bold;
+    border-radius: 3px;
+}
